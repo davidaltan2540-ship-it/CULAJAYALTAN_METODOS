@@ -1,29 +1,29 @@
 <?php
-if (isset($_GET['marca']) && isset($_GET['modelo'])) {
-    $marca = $_GET['marca'];
-    $modelo = $_GET['modelo'];
+if (isset($_GET['marca']) && isset($_GET['modelo']) && isset($_GET['color'])) {
+    $marca = htmlspecialchars($_GET['marca']);
+    $modelo = htmlspecialchars($_GET['modelo']);
+    $color = htmlspecialchars($_GET['color']);
 
-    $marca = htmlspecialchars($marca);
-    $modelo = htmlspecialchars($modelo);
-
-    $cantletrasmodelo = strlen($modelo);
+    // Funciones nativas de PHP
     $cantletrasmarca = strlen($marca);
-    $convertirminusculasmodelo = strtolower($modelo);
-    $convertirminusculasmarca = strtolower($marca);
-    $convertirmayusculasmodelo = strtoupper($modelo);
-    $convertirmayusculasmarca = strtoupper($marca);
+    $cantletrasmodelo = strlen($modelo);
+    $cantletrascolor = strlen($color);
 
+    $marcaMayus = strtoupper($marca);
+    $modeloMayus = strtoupper($modelo);
+    $colorMayus = strtoupper($color);
+
+    $marcaMinus = strtolower($marca);
+    $modeloMinus = strtolower($modelo);
+    $colorMinus = strtolower($color);
+
+    // Mostrar resultados
     echo "<h2>Resultados de la búsqueda:</h2>";
-    echo "<p>Marca: " . $marca . "</p>";
-    echo "<p>Modelo: " . $modelo . "</p>";
-    echo "<p>Cantidad de letras en el modelo: " . $cantletrasmodelo . "</p>";
-    echo "<p>Cantidad de letras en la marca: " . $cantletrasmarca . "</p>";
-    echo "<p>Modelo en minúsculas: " . $convertirminusculasmodelo . "</p>";
-    echo "<p>Marca en minúsculas: " . $convertirminusculasmarca . "</p>";
-    echo "<p>Modelo en mayúsculas: " . $convertirmayusculasmodelo . "</p>";
-    echo "<p>Marca en mayúsculas: " . $convertirmayusculasmarca . "</p>";
+    echo "<p>Marca: " . $marca . " (Letras: " . $cantletrasmarca . ", Mayúsculas: " . $marcaMayus . ", Minúsculas: " . $marcaMinus . ")</p>";
+    echo "<p>Modelo: " . $modelo . " (Letras: " . $cantletrasmodelo . ", Mayúsculas: " . $modeloMayus . ", Minúsculas: " . $modeloMinus . ")</p>";
+    echo "<p>Color: " . $color . " (Letras: " . $cantletrascolor . ", Mayúsculas: " . $colorMayus . ", Minúsculas: " . $colorMinus . ")</p>";
 
 } else {
-    echo "<p>Por favor, ingresa una marca y modelo para realizar la búsqueda.</p>";
+    echo "<p>Por favor, completa todos los campos.</p>";
 }
 ?>
