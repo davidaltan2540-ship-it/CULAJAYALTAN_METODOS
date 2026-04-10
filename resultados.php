@@ -39,6 +39,9 @@ if (isset($_GET['marca']) && isset($_GET['modelo']) && isset($_GET['color'])) {
     $marcaMinus  = strtolower($marca);
     $modeloMinus = strtolower($modelo);
     $colorMinus  = strtolower($color);
+echo "<div class='alert alert-info text-center'>¡Búsqueda exitosa! Aquí están los detalles del vehículo:</div>";
+echo "<div class='alert alert-secondary text-center'>Marca: <span class='fw-bold'>$marcaMayus</span> (Letras: $cantletrasmarca)</div>";
+
 ?>
             <table class="table table-bordered table-hover text-center align-middle">
                 <thead class="table-dark">
@@ -83,6 +86,9 @@ if (isset($_GET['marca']) && isset($_GET['modelo']) && isset($_GET['color'])) {
 <div>
 <?php echo "<div class='alert alert-info text-center mt-4'>¡Gracias por usar nuestro sistema de búsqueda de vehículos!</div>"; ?>
 </div>
+
+
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
